@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amani Farhat — IoT &amp; Industry 4.0</title>
+<meta name="description" content="Portfolio of Amani Farhat, Master's student in IoT Services Development. Portfolio d'Amani Farhat, étudiante en Master DSIoT.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef3f6;--ink:#14243a;--mute:#4d5d70;--line:#c9d4de;--blue:#2b59ff;--amber:#d98a00;--card:#f8fbfd}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.65 "IBM Plex Sans",system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque","Segoe UI",sans-serif;line-height:1.12;margin:0}
+a{color:var(--blue)}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.wrap{max-width:900px;margin:0 auto;padding:0 24px}
+html[lang=fr] [data-l=en],html[lang=en] [data-l=fr]{display:none}
+header.top{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
+header.top nav a{margin-right:22px;color:var(--ink);text-decoration:none;font-weight:500}
+header.top nav a:hover{color:var(--blue)}
+.lang{border:1.5px solid var(--ink);background:none;color:var(--ink);border-radius:999px;padding:6px 16px;font:500 15px "IBM Plex Sans",sans-serif;cursor:pointer}
+.lang:hover{background:var(--ink);color:var(--bg)}
+.hero{padding:48px 0 24px}
+.hero h1{font-size:clamp(44px,9vw,92px);font-weight:700;letter-spacing:-.03em}
+.hero p.lead{max-width:34em;font-size:20px;color:var(--mute);margin:18px 0 0}
+.scope{margin-top:34px;border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);background:var(--card);position:relative}
+.scope canvas{display:block;width:100%;height:150px}
+.scope .tag{position:absolute;right:12px;top:8px;font-size:14px;color:var(--mute)}
+.scope .tag b{color:var(--amber);font-weight:500;opacity:0;transition:opacity .2s}
+.scope .tag b.on{opacity:1}
+section{padding:56px 0 8px}
+h2{font-size:34px;margin-bottom:26px}
+.proj{display:grid;grid-template-columns:1fr;gap:6px;padding:22px 0 22px 20px;border-left:3px solid var(--blue);margin-bottom:22px}
+.proj:nth-of-type(2){border-color:var(--amber)}
+.proj h3{font-size:24px}
+.proj .stack{color:var(--mute);font-size:15px}
+.proj ul{margin:6px 0 0;padding-left:20px}
+.proj a.repo{font-weight:500}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px 36px}
+.skills h3{font-size:18px;margin-bottom:4px}
+.skills p{margin:0;color:var(--mute)}
+.tl{list-style:none;padding:0;margin:0}
+.tl li{display:grid;grid-template-columns:130px 1fr;gap:16px;padding:14px 0;border-top:1px solid var(--line)}
+.tl .d{color:var(--mute);font-size:15px}
+.tl strong{font-weight:500}
+.cta{display:inline-block;margin:6px 14px 0 0;padding:11px 22px;border-radius:999px;background:var(--ink);color:var(--bg);text-decoration:none;font-weight:500}
+.cta.alt{background:none;color:var(--ink);border:1.5px solid var(--ink)}
+.cta:hover{background:var(--blue);border-color:var(--blue);color:#fff}
+footer{padding:56px 0 40px;color:var(--mute);font-size:15px}
+@media(max-width:600px){.tl li{grid-template-columns:1fr;gap:2px}header.top nav{display:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <nav aria-label="Sections">
+    <a href="#projects"><span data-l="en">Projects</span><span data-l="fr">Projets</span></a>
+    <a href="#skills"><span data-l="en">Skills</span><span data-l="fr">Compétences</span></a>
+    <a href="#path"><span data-l="en">Background</span><span data-l="fr">Parcours</span></a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <button class="lang" id="lang" type="button" aria-label="Change language / Changer de langue">FR / EN</button>
+</header>
+
+<main>
+<div class="hero">
+  <h1>Amani Farhat</h1>
+  <p class="lead">
+    <span data-l="en">Master's student in IoT Services Development. I build IoT systems end to end: sensors on ESP32, secure transport, cloud backend, anomaly detection and dashboards. Looking for a Master's internship.</span>
+    <span data-l="fr">Étudiante en Master Développement des Services IoT. Je construis des systèmes IoT de bout en bout : capteurs sur ESP32, transport sécurisé, backend cloud, détection d'anomalies et dashboards. Je recherche un stage de Master.</span>
+  </p>
+  <div class="scope" aria-hidden="true">
+    <canvas id="wave"></canvas>
+    <div class="tag">vibration · ADXL345 <b id="flag">anomaly detected</b></div>
+  </div>
+</div>
+
+<section id="projects">
+  <h2><span data-l="en">Projects</span><span data-l="fr">Projets</span></h2>
+
+  <article class="proj">
+    <h3>PrédiMaint</h3>
+    <div class="stack">ESP32 · MQTT/TLS · FastAPI · InfluxDB · PostgreSQL · Isolation Forest · Grafana · Flutter · Docker</div>
+    <ul data-l="en">
+      <li>Predictive maintenance platform monitoring industrial machines in real time (team of 5, Scrum).</li>
+      <li>ESP32 enclosure measuring vibration, temperature and current, with edge computing (RMS, peak, FFT).</li>
+      <li>Secure MQTT/TLS transport, FastAPI backend with JWT, two-level anomaly detection (thresholds + Isolation Forest).</li>
+    </ul>
+    <ul data-l="fr">
+      <li>Plateforme de maintenance prédictive surveillant des machines industrielles en temps réel (équipe de 5, Scrum).</li>
+      <li>Boîtier ESP32 mesurant vibration, température et courant, avec calcul en périphérie (RMS, crête, FFT).</li>
+      <li>Transport sécurisé MQTT/TLS, backend FastAPI avec JWT, détection d'anomalies à deux niveaux (seuils + Isolation Forest).</li>
+    </ul>
+    <a class="repo" href="https://github.com/Emenyfarhat0209">GitHub</a>
+  </article>
+
+  <article class="proj">
+    <h3><span data-l="en">Smart Parking</span><span data-l="fr">Parking intelligent</span></h3>
+    <div class="stack">ASP.NET Core · MQTT/TLS · RabbitMQ · JWT · gRPC · API Gateway</div>
+    <ul data-l="en">
+      <li>Microservices architecture for a smart parking system.</li>
+      <li>Secure MQTT/TLS communication, gRPC streaming and asynchronous messaging with RabbitMQ.</li>
+      <li>JWT access control and central routing through an API Gateway.</li>
+    </ul>
+    <ul data-l="fr">
+      <li>Architecture microservices pour la gestion d'un parking intelligent.</li>
+      <li>Communications sécurisées MQTT/TLS, streaming gRPC et messagerie asynchrone RabbitMQ.</li>
+      <li>Accès sécurisés par JWT et routage centralisé via une API Gateway.</li>
+    </ul>
+    <a class="repo" href="https://github.com/Emenyfarhat0209">GitHub</a>
+  </article>
+
+  <article class="proj">
+    <h3><span data-l="en">OpenNebula Cloud Infrastructure</span><span data-l="fr">Infrastructure Cloud OpenNebula</span></h3>
+    <div class="stack">OpenNebula · <span data-l="en">Virtualization</span><span data-l="fr">Virtualisation</span> · Cloud Computing</div>
+    <ul data-l="en"><li>Deployment of a cloud infrastructure and management of virtualized resources.</li></ul>
+    <ul data-l="fr"><li>Déploiement d'une infrastructure Cloud et gestion des ressources virtualisées.</li></ul>
+    <a class="repo" href="https://github.com/Emenyfarhat0209">GitHub</a>
+  </article>
+</section>
+
+<section id="skills">
+  <h2><span data-l="en">Skills</span><span data-l="fr">Compétences</span></h2>
+  <div class="skills">
+    <div><h3>IoT &amp; <span data-l="en">Embedded</span><span data-l="fr">Embarqué</span></h3><p>ESP32, Arduino, MQTT/TLS, MEMS</p></div>
+    <div><h3>Backend &amp; Mobile</h3><p>FastAPI, ASP.NET Core, gRPC, RabbitMQ, JWT, Flutter</p></div>
+    <div><h3>Cloud &amp; DevOps</h3><p>Docker, OpenNebula, Microsoft Azure, Git</p></div>
+    <div><h3><span data-l="en">Data &amp; AI</span><span data-l="fr">Données &amp; IA</span></h3><p>PostgreSQL, InfluxDB, MongoDB, HBase, Spark, Isolation Forest</p></div>
+    <div><h3><span data-l="en">Networks &amp; Monitoring</span><span data-l="fr">Réseaux &amp; Supervision</span></h3><p>Cisco, GNS3, pfSense, Suricata, Grafana, Zabbix, Nagios</p></div>
+    <div><h3><span data-l="en">Languages</span><span data-l="fr">Langages</span></h3><p>Python, C/C++, Java, JavaScript</p></div>
+  </div>
+</section>
+
+<section id="path">
+  <h2><span data-l="en">Background</span><span data-l="fr">Parcours</span></h2>
+  <ul class="tl">
+    <li><span class="d">2025 – 2027</span><span><strong><span data-l="en">Master DSIoT, IoT Services Development</span><span data-l="fr">Master DSIoT, Développement des Services IoT</span></strong><br>ISET Mahdia</span></li>
+    <li><span class="d">2023</span><span><strong><span data-l="en">Applied Bachelor, Networks and IT Services</span><span data-l="fr">Licence Appliquée, Réseaux et Services Informatiques</span></strong><br>ISET Mahdia</span></li>
+    <li><span class="d">2023</span><span><strong>WEGO</strong><br><span data-l="en">Final-year project: open source server monitoring solution, failure anticipation.</span><span data-l="fr">PFE : solution open source de supervision des serveurs, anticipation des pannes.</span></span></li>
+    <li><span class="d">2023</span><span><strong>LEADERPOS</strong><br><span data-l="en">Network simulation with GNS3; SSH, VRRP and RIP configuration.</span><span data-l="fr">Simulation réseau avec GNS3 ; configuration SSH, VRRP et RIP.</span></span></li>
+    <li><span class="d"><span data-l="en">Certifications</span><span data-l="fr">Certifications</span></span><span>FESTO (MES, Industry 4.0) · Scrum Foundation (SFPC) · Green Digital Skills</span></li>
+  </ul>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p><span data-l="en">Open to a Master's internship in IoT and Industry 4.0.</span><span data-l="fr">Disponible pour un stage de Master en IoT et Industrie 4.0.</span></p>
+  <a class="cta" href="mailto:farhatamani799@gmail.com">Email</a>
+  <a class="cta alt" href="https://linkedin.com/in/amanifarhat-a26688229">LinkedIn</a>
+  <a class="cta alt" href="https://github.com/Emenyfarhat0209">GitHub</a>
+</section>
+</main>
+
+<footer>© 2026 Amani Farhat · Mahdia, <span data-l="en">Tunisia</span><span data-l="fr">Tunisie</span></footer>
+</div>
+
+<script>
+(function(){
+  var root=document.documentElement,btn=document.getElementById('lang');
+  var saved=null;try{saved=localStorage.getItem('lang')}catch(e){}
+  function set(l){root.lang=l;document.title=l==='fr'?'Amani Farhat — IoT & Industrie 4.0':'Amani Farhat — IoT & Industry 4.0';try{localStorage.setItem('lang',l)}catch(e){}}
+  set(saved||((navigator.language||'en').slice(0,2)==='fr'?'fr':'en'));
+  btn.addEventListener('click',function(){set(root.lang==='fr'?'en':'fr')});
+
+  var c=document.getElementById('wave'),x=c.getContext('2d'),flag=document.getElementById('flag');
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches,t=0,W,H;
+  function size(){var r=devicePixelRatio||1;W=c.clientWidth;H=c.clientHeight;c.width=W*r;c.height=H*r;x.setTransform(r,0,0,r,0,0)}
+  addEventListener('resize',size);size();
+  function sig(u){
+    var v=Math.sin(u*.09)*.5+Math.sin(u*.23)*.25+Math.sin(u*.61)*.1;
+    var k=Math.floor(u/420),p=u-k*420+0;
+    if(k%1===0&&p>300&&p<330){v+=Math.sin((p-300)*.6)*1.3*Math.exp(-(p-300)/14)}
+    return v;
+  }
+  function draw(){
+    x.clearRect(0,0,W,H);
+    x.strokeStyle='#c9d4de';x.lineWidth=1;
+    for(var g=1;g<4;g++){x.beginPath();x.moveTo(0,H*g/4);x.lineTo(W,H*g/4);x.stroke()}
+    var hit=false;
+    for(var i=0;i<W;i++){
+      var u=t+i,p=((u%420)+420)%420,bad=p>300&&p<340;
+      if(bad&&i>W*.3)hit=true;
+      var y=H/2-sig(u)*H*.3;
+      x.fillStyle=bad?'#d98a00':'#2b59ff';
+      x.fillRect(i,y,2,2);
+    }
+    flag.classList.toggle('on',hit);
+    if(!reduce){t+=1.6;requestAnimationFrame(draw)}
+  }
+  draw();
+})();
+</script>
+</body>
+</html>
